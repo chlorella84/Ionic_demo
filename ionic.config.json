@@ -1,5 +1,7 @@
 {
   "name": "demoionic",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
