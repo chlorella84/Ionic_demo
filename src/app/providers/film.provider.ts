@@ -39,5 +39,29 @@ export class FilmsProvider {
             });
 
          });
+         
+    }
+
+    public details(imdbID : string): Promise<Film>{
+        return new Promise((resolve, reject) =>{
+            let params =new HttpParams();
+            params = params.append('apikey', '1898fc97');
+            params = params.append('i', imdbID);
+            this.httpClient.get('http://www.omdbapi.com/', {params:params})
+            .toPromise()
+            .then((response) =>{
+                if(response && response['Title'])
+                {
+                    const film = new Film(response['imdbID'], response['Title'], response['Year'], response['Poster'], response['Plot']);
+                    resolve(film);
+                }else {
+                    reject ("le serveur n'a pas trouvé le film !!");
+                }
+
+            })
+            .catch((error) =>{
+                reject(error);
+            });
+        })
     }
 }

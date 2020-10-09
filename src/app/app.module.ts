@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FilmsProvider } from './providers/film.provider';
 import {HttpClientModule} from '@angular/common/http';
+import {TextToSpeech} from '@ionic-native/text-to-speech/ngx';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import {HttpClientModule} from '@angular/common/http';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    FilmsProvider
+    FilmsProvider, TextToSpeech,
   ],
   bootstrap: [AppComponent]
 })
